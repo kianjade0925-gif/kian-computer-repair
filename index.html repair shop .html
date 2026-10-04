@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kian P. Computer Repair Shop</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at top left, #3a2608, transparent 35%),
+                radial-gradient(circle at bottom right, #182c3a, transparent 35%),
+                #090d12;
+            color: #e8edf2;
+            min-height: 100vh;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 55px 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(243, 156, 18, 0.35);
+            border-radius: 20px;
+            background: rgba(22, 27, 34, 0.85);
+            box-shadow:
+                0 0 35px rgba(243, 156, 18, 0.12),
+                inset 0 0 30px rgba(255, 255, 255, 0.02);
+        }
+
+        .logo {
+            font-size: 55px;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 0 12px #f39c12);
+        }
+
+        h1 {
+            font-size: 42px;
+            color: white;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(243, 156, 18, 0.6);
+        }
+
+        .tagline {
+            color: #aeb7c1;
+            margin-top: 12px;
+            font-size: 16px;
+        }
+
+        .status {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 8px 18px;
+            border-radius: 30px;
+            background: rgba(46, 204, 113, 0.12);
+            border: 1px solid #2ecc71;
+            color: #2ecc71;
+            font-size: 13px;
+        }
+
+        .section {
+            background: rgba(20, 25, 31, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        h2 {
+            color: white;
+            font-size: 25px;
+            margin-bottom: 22px;
+            border-left: 5px solid #f39c12;
+            padding-left: 13px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        th {
+            background: linear-gradient(135deg, #f39c12, #d97706);
+            color: #111;
+            padding: 16px;
+            text-align: left;
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid #303740;
+            color: #dce2e7;
+        }
+
+        tr {
+            background: #171d24;
+            transition: 0.25s;
+        }
+
+        tr:nth-child(even) {
+            background: #1c232b;
+        }
+
+        tr:hover {
+            background: #292f36;
+            transform: scale(1.005);
+        }
+
+        form {
+            display: grid;
+            gap: 5px;
+        }
+
+        label {
+            color: #dfe5ea;
+            font-weight: bold;
+            margin-top: 13px;
+            margin-bottom: 6px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid #3a424c;
+            background: #10151b;
+            color: white;
+            font-size: 14px;
+            transition: 0.25s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #f39c12;
+            box-shadow: 0 0 12px rgba(243, 156, 18, 0.25);
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .options label {
+            margin: 0;
+            padding: 11px 15px;
+            background: #151b22;
+            border: 1px solid #343c45;
+            border-radius: 9px;
+            font-weight: normal;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .options label:hover {
+            border-color: #f39c12;
+            box-shadow: 0 0 10px rgba(243, 156, 18, 0.15);
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            accent-color: #f39c12;
+            margin-right: 7px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: #111;
+            box-shadow: 0 0 18px rgba(243, 156, 18, 0.25);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.35);
+        }
+
+        .reset-btn {
+            background: #303740;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background: #444d57;
+            transform: translateY(-3px);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px;
+            background: linear-gradient(135deg, #171d24, #11161c);
+            border: 1px solid #303943;
+            border-radius: 12px;
+            transition: 0.25s;
+        }
+
+        .contact-card:hover {
+            border-color: #f39c12;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.12);
+        }
+
+        .contact-icon {
+            min-width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(243, 156, 18, 0.12);
+            font-size: 24px;
+        }
+
+        .contact-card strong {
+            color: white;
+        }
+
+        .contact-card p,
+        .contact-card a {
+            color: #aeb7c1;
+            margin-top: 5px;
+            display: block;
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        .contact-card a:hover {
+            color: #f39c12;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #727c86;
+            font-size: 13px;
+        }
+
+        .footer-line {
+            width: 80px;
+            height: 3px;
+            background: #f39c12;
+            margin: 0 auto 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #f39c12;
+        }
+
+        @media (max-width: 650px) {
+
+            body {
+                padding: 15px 10px;
+            }
+
+            .hero {
+                padding: 40px 15px;
+            }
+
+            h1 {
+                font-size: 29px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .options {
+                flex-direction: column;
+            }
+
+            .options label {
+                width: 100%;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <div class="hero">
+
+        <div class="logo">🔧</div>
+
+        <h1>Kian P. Computer Repair Shop</h1>
+
+        <p class="tagline">
+            Fast • Reliable • Affordable Computer Repair Services
+        </p>
+
+        <div class="status">
+            ● Professional Computer Repair Service
+        </div>
+
+    </div>
+
+
+    <!-- SERVICES -->
+
+    <div class="section">
+
+        <h2>🛠️ Our Repair Services</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <tr>
+                    <th>Service</th>
+                    <th>Description</th>
+                    <th>Estimated Price</th>
+                </tr>
+
+                <tr>
+                    <td>💻 Operating System Repair</td>
+                    <td>Fix Windows and system problems</td>
+                    <td>₱500</td>
+                </tr>
+
+                <tr>
+                    <td>🛡️ Virus Removal</td>
+                    <td>Remove viruses and unwanted programs</td>
+                    <td>₱400</td>
+                </tr>
+
+                <tr>
+                    <td>⚙️ Hardware Repair</td>
+                    <td>Check and repair computer hardware</td>
+                    <td>₱700</td>
+                </tr>
+
+                <tr>
+                    <td>🧹 Computer Cleaning</td>
+                    <td>Clean dust and improve computer cooling</td>
+                    <td>₱300</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- SERVICE REQUEST -->
+
+    <div class="section">
+
+        <h2>📋 Service Request</h2>
+
+        <form
+            action="https://formsubmit.co/kianjadepilota358@gmail.com"
+            method="POST"
+        >
+
+            <input
+                type="hidden"
+                name="_subject"
+                value="New Computer Repair Request - Kian P. Computer Repair Shop"
+            >
+
+            <input
+                type="hidden"
+                name="_template"
+                value="table"
+            >
+
+            <input
+                type="hidden"
+                name="_captcha"
+                value="false"
+            >
+
+            <label for="name">
+                👤 Customer Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                name="Customer Name"
+                placeholder="Enter your name"
+                required
+            >
+
+            <label for="email">
+                📧 Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="Customer Email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label for="contact">
+                📱 Contact Number
+            </label>
+
+            <input
+                type="tel"
+                id="contact"
+                name="Contact Number"
+                placeholder="Enter your contact number"
+                required
+            >
+
+            <label for="device">
+                💻 Device Type
+            </label>
+
+            <select
+                id="device"
+                name="Device Type"
+                required
+            >
+
+                <option value="">
+                    -- Select Device --
+                </option>
+
+                <option value="Desktop Computer">
+                    Desktop Computer
+                </option>
+
+                <option value="Laptop">
+                    Laptop
+                </option>
+
+                <option value="Tablet">
+                    Tablet
+                </option>
+
+            </select>
+
+            <label for="service">
+                🔧 Preferred Service
+            </label>
+
+            <select
+                id="service"
+                name="Preferred Service"
+                required
+            >
+
+                <option value="">
+                    -- Select Service --
+                </option>
+
+                <option value="Operating System Repair">
+                    Operating System Repair
+                </option>
+
+                <option value="Virus Removal">
+                    Virus Removal
+                </option>
+
+                <option value="Hardware Repair">
+                    Hardware Repair
+                </option>
+
+                <option value="Computer Cleaning">
+                    Computer Cleaning
+                </option>
+
+            </select>
+
+            <label>
+                🚨 Service Priority
+            </label>
+
+            <div class="options">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="Service Priority"
+                        value="Low"
+                    >
+                    Low
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="Service Priority"
+                        value="Normal"
+                        checked
+                    >
+                    Normal
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="Service Priority"
+                        value="Urgent"
+                    >
+                    Urgent
+                </label>
+
+            </div>
+
+            <label>
+                ➕ Additional Services
+            </label>
+
+            <div class="options">
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="Additional Services"
+                        value="Data Backup"
+                    >
+                    Data Backup
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="Additional Services"
+                        value="Software Installation"
+                    >
+                    Software Installation
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="Additional Services"
+                        value="Internal Cleaning"
+                    >
+                    Internal Cleaning
+                </label>
+
+            </div>
+
+            <label for="date">
+                📅 Preferred Date
+            </label>
+
+            <input
+                type="date"
+                id="date"
+                name="Preferred Date"
+            >
+
+            <label for="problem">
+                📝 Problem Description
+            </label>
+
+            <textarea
+                id="problem"
+                name="Problem Description"
+                rows="5"
+                placeholder="Describe the problem with your device..."
+            ></textarea>
+
+            <div class="buttons">
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+                    🚀 Submit Request
+                </button>
+
+                <button
+                    type="reset"
+                    class="reset-btn"
+                >
+                    🔄 Reset Form
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- CONTACT -->
+
+    <div class="section">
+
+        <h2>📞 Contact Kian P.</h2>
+
+        <div class="contact-grid">
+
+            <!-- EMAIL -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📧
+                </div>
+
+                <div>
+
+                    <strong>Email</strong>
+
+                    <a href="mailto:kianjadepilota358@gmail.com">
+                        kianjadepilota358@gmail.com
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- FACEBOOK -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📘
+                </div>
+
+                <div>
+
+                    <strong>Facebook</strong>
+
+                    <a
+                        href="https://www.facebook.com/share/1DeWXkVqFa/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Kian Pilota
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHONE -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📱
+                </div>
+
+                <div>
+
+                    <strong>Phone</strong>
+
+                    <a href="tel:09617303801">
+                        09617303801
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOCATION -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📍
+                </div>
+
+                <div>
+
+                    <strong>Location</strong>
+
+                    <p>
+                        Gabi, Camino, Cordova, Cebu
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-line"></div>
+
+        © 2026 Kian P. Computer Repair Shop
+
+        <br>
+
+        Reliable Computer Repair Services
+
+    </footer>
+
+</div>
+
+</body>
+</html>
